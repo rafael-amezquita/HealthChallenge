@@ -10,11 +10,14 @@ import Foundation
 
 class ChallengesTableViewPresenter {
   
-  private let proxy: ServicesAPIProxyProtocol
+  private let dataManager: LocalDataModelManager
   
-  init() {
-    proxy = ServiceAPIProxyFactory.createServiceAPIProxy()
+  var goals: [Goal] {
+    return dataManager.getGoals()
   }
   
+  init() {
+    dataManager = LocalDataModelManager.shared
+  }
   
 }

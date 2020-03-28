@@ -34,7 +34,7 @@ class ServicesAPIProxy: ServicesAPIProxyProtocol {
   }
   
   private func save(goals: [Goal]) {
-    LocalDataModelManager.save(goals: goals)
+    LocalDataModelManager.shared.save(goals: goals)
   }
   
   // MARK: - API

@@ -20,13 +20,12 @@ class SplashViewController: UIViewController {
     super.viewDidLoad()
     
     view.addSubview(animation)
+    // TODO: apply constraints
     animation.frame = view.frame
     animation.loopMode = .loop
     animation.play()
     
-    // TODO: Show lottie animation first
     presenter.fetchGoal { (isFetchSuccessful) in
-      
       DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5) {
         self.animation.stop()
         self.performSegue(withIdentifier: "navigationSegue", sender: nil)

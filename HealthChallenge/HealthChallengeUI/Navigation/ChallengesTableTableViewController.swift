@@ -10,6 +10,8 @@ import UIKit
 
 class ChallengesTableTableViewController: UITableViewController {
   
+  private let presenter = ChallengesTableViewPresenter()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -29,7 +31,7 @@ class ChallengesTableTableViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // #warning Incomplete implementation, return the number of rows
-    return 1
+    return presenter.goals.count
   }
   
   
@@ -37,7 +39,8 @@ class ChallengesTableTableViewController: UITableViewController {
     let cell = tableView.dequeueReusableCell(withIdentifier: "ChallengeCell", for: indexPath)
     
     // Configure the cell...
-    cell.textLabel?.text = "Cell Test"
+    let goal = presenter.goals[indexPath.row]
+    cell.textLabel?.text = goal.title
     
     return cell
   }

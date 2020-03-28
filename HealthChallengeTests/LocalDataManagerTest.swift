@@ -22,10 +22,15 @@ class LocalDataManagerTest: XCTestCase {
   func test_save_shouldSaveGoalsAsModels() {
     // TODO: figure out how to handle tests for data base to avoid
     // having mocked data stored in the same data base
-    // LocalDataModelManager.save(goals: goals)
+    // TODO: Mock service response
+    // LocalDataModelManager.shared.save(goals: goals)
   }
   
-  func test_getGols_shouldRetrieveGoalsAsServiceModels() {
+  func test_getGoals_shouldRetrieveGoalsAsServiceModels() {
+    let goals = LocalDataModelManager.shared.getGoals()
+    
+    XCTAssertNotNil(goals)
+    XCTAssertTrue(goals.count > 0)
     
   }
   

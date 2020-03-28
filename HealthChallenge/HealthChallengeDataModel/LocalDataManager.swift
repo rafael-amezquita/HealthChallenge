@@ -11,63 +11,86 @@ import RealmSwift
 
 class LocalDataModelManager {
   
-  static func save(goals: [Goal]) {
-    // TODO: Check if they already exis
+  static let shared = LocalDataModelManager()
+  
+  private var database: Realm?
+  
+  private init() {
     do {
-      let realm = try Realm()
-      for goal in goals {
-        let goalModel = GoalModel.instance(from: goal)
-        print(Realm.Configuration.defaultConfiguration.fileURL)
-        try realm.write {
-          realm.add(goalModel)
-        }
-      }
+      database = try Realm()
+      // TODO: customize the db path
+      print(Realm.Configuration.defaultConfiguration.fileURL)
     } catch {
       print(error)
     }
   }
   
-  static func getGoals() -> [Goal] {
-    var goals = [Goal]()
-    do {
-      let realm = try Realm()
-      let models = realm.objects(GoalModel.self)
-      for model in models {
-        // TODO: save unwraped the optionals
-        let reward = Reward(trophy: TrophyType(rawValue: model.reward!.trophy)!,
-                            points: model.reward!.points)
-        let goal = Goal(id: model.id,
-                        title: model.title,
-                        description: model.goalDescription,
-                        type: GoalType(rawValue: model.type)!,
-                        goal: model.goal,
-                        reward: reward)
-        goals.append(goal)
-      }
-    } catch {
-      print(error)
+  func save(goals: [Goal]) {
+    
+    guard let db = database else {
+      // TODO: handle this error
+      print("an error was occured storing the data")
+      return
     }
+    
+    // TODO: Check if they already exis
+    for goal in goals {
+      let goalModel = GoalModel.instance(from: goal)
+      do {
+        try db.write {
+          db.add(goalModel)
+        }
+      } catch {
+        print(error)
+      }
+    }
+    
+  }
+  
+  func getGoals() -> [Goal] {
+    guard let db = database else {
+      // TODO: handle this error
+      print("an error was occured storing the data")
+      return [Goal]()
+    }
+    
+    var goals = [Goal]()
+
+    let models = db.objects(GoalModel.self)
+    for model in models {
+      // TODO: save unwraped the optionals
+      let reward = Reward(trophy: TrophyType(rawValue: model.reward!.trophy)!,
+                          points: model.reward!.points)
+      let goal = Goal(id: model.id,
+                      title: model.title,
+                      description: model.goalDescription,
+                      type: GoalType(rawValue: model.type)!,
+                      goal: model.goal,
+                      reward: reward)
+      goals.append(goal)
+    }
+
     
     return goals
   }
   
-  static func get(goal: Goal) -> Goal? {
+  func get(goal: Goal) -> Goal? {
     return nil
   }
   
-  static func updateAll() -> Bool {
+  func updateAll() -> Bool {
     return false
   }
   
-  static func update(goal: Goal) -> Bool {
+  func update(goal: Goal) -> Bool {
     return false
   }
   
-  static func removeAll() -> Bool {
+  func removeAll() -> Bool {
     return false
   }
   
-  static func remove(goal: Goal) -> Bool {
+  func remove(goal: Goal) -> Bool {
     return false
   }
 }
