@@ -36,11 +36,12 @@ class ChallengesTableTableViewController: UITableViewController {
   
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "ChallengeCell", for: indexPath)
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChallengeCell", for: indexPath) as? ChallengeTableViewCell else {
+      return UITableViewCell()
+    }
     
-    // Configure the cell...
     let goal = presenter.goals[indexPath.row]
-    cell.textLabel?.text = goal.title
+    cell.setup(from: goal.title)
     
     return cell
   }
