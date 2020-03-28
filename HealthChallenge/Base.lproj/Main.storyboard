@@ -15,24 +15,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Splash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2F-bB-IAc">
-                                <rect key="frame" x="181" y="438" width="52" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BgT-bG-rjc">
+                                <rect key="frame" x="87" y="328" width="240" height="240"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="JjY-lK-mRe"/>
+                                    <constraint firstAttribute="width" constant="240" id="fyu-P9-hbZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="BgT-bG-rjc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="NIF-on-ddD"/>
+                            <constraint firstItem="BgT-bG-rjc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uEU-V6-70m"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="loadingView" destination="BgT-bG-rjc" id="tmv-yO-fBA"/>
                         <segue destination="Jli-ga-shj" kind="show" identifier="navigationSegue" id="Thm-aN-fGz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="92"/>
+            <point key="canvasLocation" x="137.68115942028987" y="91.741071428571431"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="F1b-k6-xgB">

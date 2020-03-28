@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import HealthChallenge
 
 class LocalDataManagerTest: XCTestCase {
   
@@ -19,7 +20,9 @@ class LocalDataManagerTest: XCTestCase {
   }
   
   func test_save_shouldSaveGoalsAsModels() {
-    
+    // TODO: figure out how to handle tests for data base to avoid
+    // having mocked data stored in the same data base
+    // LocalDataModelManager.save(goals: goals)
   }
   
   func test_getGols_shouldRetrieveGoalsAsServiceModels() {
