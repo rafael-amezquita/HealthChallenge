@@ -13,6 +13,10 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
+    let proxy =  ServiceAPIProxyFactory.createServiceAPIProxy()
+    proxy.goals { (error, goals) in
+      print(error, goals)
+    }
   }
 
 
