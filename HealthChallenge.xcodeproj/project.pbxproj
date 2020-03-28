@@ -33,6 +33,8 @@
 		E1403A90242FAE11002252FA /* splash-loading-aimation.json in Resources */ = {isa = PBXBuildFile; fileRef = E1403A8F242FAE11002252FA /* splash-loading-aimation.json */; };
 		E1403A97242FD5D9002252FA /* ChallengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1403A96242FD5D9002252FA /* ChallengeTableViewCell.swift */; };
 		E1BC940E242D188B0052614A /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1BC940D242D188B0052614A /* Realm.framework */; };
+		E1F4EA83242FE464004E1108 /* details-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = E1F4EA82242FE464004E1108 /* details-animation.json */; };
+		E1F4EA85242FE760004E1108 /* ChallengeDetailsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F4EA84242FE760004E1108 /* ChallengeDetailsViewPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		E1403A8F242FAE11002252FA /* splash-loading-aimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "splash-loading-aimation.json"; sourceTree = "<group>"; };
 		E1403A96242FD5D9002252FA /* ChallengeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeTableViewCell.swift; sourceTree = "<group>"; };
 		E1BC940D242D188B0052614A /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		E1F4EA82242FE464004E1108 /* details-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "details-animation.json"; sourceTree = "<group>"; };
+		E1F4EA84242FE760004E1108 /* ChallengeDetailsViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailsViewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +214,7 @@
 			children = (
 				E1403A95242FBD7D002252FA /* ChallengesTableView */,
 				E1403A84242E402A002252FA /* ChallengeDetailViewController.swift */,
+				E1F4EA84242FE760004E1108 /* ChallengeDetailsViewPresenter.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				E1403A8F242FAE11002252FA /* splash-loading-aimation.json */,
+				E1F4EA82242FE464004E1108 /* details-animation.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -317,6 +323,7 @@
 				E11DAD65242B9DB700B4B733 /* CarthageOutputFile.xcfilelist in Resources */,
 				E11DAD63242B9D7100B4B733 /* CarthageInputFile.xcfilelist in Resources */,
 				E11DAD42242B92E800B4B733 /* LaunchScreen.storyboard in Resources */,
+				E1F4EA83242FE464004E1108 /* details-animation.json in Resources */,
 				E11DAD3F242B92E800B4B733 /* Assets.xcassets in Resources */,
 				E1403A90242FAE11002252FA /* splash-loading-aimation.json in Resources */,
 				E11DAD3D242B92E700B4B733 /* Main.storyboard in Resources */,
@@ -364,6 +371,7 @@
 				E1403A97242FD5D9002252FA /* ChallengeTableViewCell.swift in Sources */,
 				E13E1B26242D7D6C00E75042 /* LocalDataManager.swift in Sources */,
 				E1403A81242E3BC3002252FA /* SplashViewController.swift in Sources */,
+				E1F4EA85242FE760004E1108 /* ChallengeDetailsViewPresenter.swift in Sources */,
 				E1403A85242E402A002252FA /* ChallengeDetailViewController.swift in Sources */,
 				E1403A83242E3E94002252FA /* ChallengesTableTableViewController.swift in Sources */,
 				E1403A87242FA352002252FA /* SplashViewPresenter.swift in Sources */,

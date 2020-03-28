@@ -7,24 +7,48 @@
 //
 
 import UIKit
+import Lottie
 
 class ChallengeDetailViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+  
+  @IBOutlet weak var headerView: UIView!
+  @IBOutlet weak var trophyName: UILabel!
+  @IBOutlet weak var points: UILabel!
+  
+  private var presenter: ChallengeDetailsViewPresenter?
+  private let animation = AnimationView(name: "details-animation")
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    headerView.addSubview(animation)
+    headerView.clipsToBounds = true
+    // TODO: set constraints properly
+    animation.frame = headerView.frame
+    animation.play()
+    animation.loopMode = .loop
+    
+    if let presenter = self.presenter {
+      setupReward(presenter.goal.reward)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  }
+  
+  deinit {
+    animation.stop()
+  }
+  
+  // MARK: - Bridge
+  
+  func setupData(from presenter: ChallengeDetailsViewPresenter) {
+    self.presenter = presenter
+  }
+  
+  // MARK: - Setup
+  
+  private func setupReward(_ reward: Reward) {
+    trophyName.text = reward.trophy.rawValue
+    points.text = "\(reward.points)"
+  }
+  
 }

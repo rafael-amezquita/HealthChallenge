@@ -11,6 +11,11 @@ import Foundation
 class ChallengesTableViewPresenter {
   
   private let dataManager: LocalDataModelManager
+  private var row: Int = 0
+  
+  var selectedGoal: Goal {
+    return goals[row]
+  }
   
   var goals: [Goal] {
     return dataManager.getGoals()
@@ -20,4 +25,7 @@ class ChallengesTableViewPresenter {
     dataManager = LocalDataModelManager.shared
   }
   
+  func goal(from row: Int) {
+    self.row = row
+  }
 }

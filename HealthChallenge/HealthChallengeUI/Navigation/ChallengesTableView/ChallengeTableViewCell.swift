@@ -11,14 +11,18 @@ import UIKit
 class ChallengeTableViewCell: UITableViewCell {
   
   @IBOutlet weak private var challengeTitle: UILabel!
+  @IBOutlet weak var challengeDescription: UILabel!
+  
+  // TODO: put an image for each type
   
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
   }
   
-  func setup(from title: String) {
-    challengeTitle.text = title
+  func setup(from goal: Goal) {
+    challengeTitle.text = goal.title
+    challengeDescription.text = goal.description
   }
   
 //  override func setSelected(_ selected: Bool, animated: Bool) {
