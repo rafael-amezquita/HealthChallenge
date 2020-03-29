@@ -35,6 +35,7 @@
 		E1BC940E242D188B0052614A /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1BC940D242D188B0052614A /* Realm.framework */; };
 		E1F4EA83242FE464004E1108 /* details-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = E1F4EA82242FE464004E1108 /* details-animation.json */; };
 		E1F4EA85242FE760004E1108 /* ChallengeDetailsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F4EA84242FE760004E1108 /* ChallengeDetailsViewPresenter.swift */; };
+		E1F4EA8B24300798004E1108 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F4EA8A24300798004E1108 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,8 @@
 		E1BC940D242D188B0052614A /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		E1F4EA82242FE464004E1108 /* details-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "details-animation.json"; sourceTree = "<group>"; };
 		E1F4EA84242FE760004E1108 /* ChallengeDetailsViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailsViewPresenter.swift; sourceTree = "<group>"; };
+		E1F4EA8924300798004E1108 /* HealthChallenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthChallenge.entitlements; sourceTree = "<group>"; };
+		E1F4EA8A24300798004E1108 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,7 @@
 				E1BC940E242D188B0052614A /* Realm.framework in Frameworks */,
 				E11DAD6A242BA1C300B4B733 /* Alamofire.framework in Frameworks */,
 				E1403A8D242FABF5002252FA /* Lottie.framework in Frameworks */,
+				E1F4EA8B24300798004E1108 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,14 +132,12 @@
 		E11DAD34242B92E700B4B733 /* HealthChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				E1F4EA8924300798004E1108 /* HealthChallenge.entitlements */,
 				E11DAD59242B94FA00B4B733 /* HealthChallengeUI */,
 				E11DAD58242B94B900B4B733 /* HealthChallengeDataModel */,
 				E11DAD57242B946800B4B733 /* HealthChallengeWebAPI */,
-				E11DAD35242B92E700B4B733 /* AppDelegate.swift */,
-				E11DAD37242B92E700B4B733 /* SceneDelegate.swift */,
-				E11DAD3B242B92E700B4B733 /* Main.storyboard */,
-				E11DAD3E242B92E800B4B733 /* Assets.xcassets */,
-				E11DAD40242B92E800B4B733 /* LaunchScreen.storyboard */,
+				E1F4EA8824300676004E1108 /* AppConfiguration */,
+				E1F4EA8724300669004E1108 /* Assets */,
 				E11DAD43242B92E800B4B733 /* Info.plist */,
 			);
 			path = HealthChallenge;
@@ -192,6 +194,7 @@
 		E11DAD68242BA1C300B4B733 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E1F4EA8A24300798004E1108 /* HealthKit.framework */,
 				E1403A8C242FABF5002252FA /* Lottie.framework */,
 				E13E1B27242D8D3700E75042 /* RealmSwift.framework */,
 				E1BC940D242D188B0052614A /* Realm.framework */,
@@ -213,8 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				E1403A95242FBD7D002252FA /* ChallengesTableView */,
-				E1403A84242E402A002252FA /* ChallengeDetailViewController.swift */,
-				E1F4EA84242FE760004E1108 /* ChallengeDetailsViewPresenter.swift */,
+				E1F4EA86243005DD004E1108 /* ChallengeDetailsView */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -236,6 +238,34 @@
 				E1403A96242FD5D9002252FA /* ChallengeTableViewCell.swift */,
 			);
 			path = ChallengesTableView;
+			sourceTree = "<group>";
+		};
+		E1F4EA86243005DD004E1108 /* ChallengeDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				E1403A84242E402A002252FA /* ChallengeDetailViewController.swift */,
+				E1F4EA84242FE760004E1108 /* ChallengeDetailsViewPresenter.swift */,
+			);
+			path = ChallengeDetailsView;
+			sourceTree = "<group>";
+		};
+		E1F4EA8724300669004E1108 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E11DAD3B242B92E700B4B733 /* Main.storyboard */,
+				E11DAD3E242B92E800B4B733 /* Assets.xcassets */,
+				E11DAD40242B92E800B4B733 /* LaunchScreen.storyboard */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		E1F4EA8824300676004E1108 /* AppConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				E11DAD35242B92E700B4B733 /* AppDelegate.swift */,
+				E11DAD37242B92E700B4B733 /* SceneDelegate.swift */,
+			);
+			path = AppConfiguration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -542,9 +572,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HealthChallenge/HealthChallenge.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = ULTGL94E92;
+				DEVELOPMENT_TEAM = XN874ZR3N2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -554,8 +586,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.amt.org.HealthChallenge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amt.HealthChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -565,8 +598,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HealthChallenge/HealthChallenge.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ULTGL94E92;
+				DEVELOPMENT_TEAM = XN874ZR3N2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -576,8 +611,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.amt.org.HealthChallenge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amt.HealthChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -9,6 +9,8 @@
 import UIKit
 import Lottie
 
+// TODO: handle dark-mode
+
 class SplashViewController: UIViewController {
   
   @IBOutlet weak var loadingView: UIView!

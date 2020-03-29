@@ -17,18 +17,11 @@ class ChallengeTableViewCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    // Initialization code
   }
   
   func setup(from goal: Goal) {
     challengeTitle.text = goal.title
     challengeDescription.text = goal.description
   }
-  
-//  override func setSelected(_ selected: Bool, animated: Bool) {
-//    super.setSelected(selected, animated: animated)
-//
-//    // Configure the view for the selected state
-//  }
   
 }
