@@ -12,7 +12,7 @@ import Lottie
 class ChallengeDetailViewController: UIViewController {
   
   @IBOutlet weak var headerView: UIView!
-  @IBOutlet weak var trophyName: UILabel!
+  @IBOutlet weak var trophyImage: UIImageView!
   @IBOutlet weak var points: UILabel!
   
   private var presenter: ChallengeDetailsViewPresenter?
@@ -47,8 +47,19 @@ class ChallengeDetailViewController: UIViewController {
   // MARK: - Setup
   
   private func setupReward(_ reward: Reward) {
-    trophyName.text = reward.trophy.rawValue
     points.text = "\(reward.points)"
+    
+    switch reward.trophy {
+    case .gold:
+      trophyImage.image = UIImage(named: "gold_medal")
+    case .silver:
+      trophyImage.image = UIImage(named: "silver_medal")
+    case .bronze:
+      trophyImage.image = UIImage(named: "bronze_medal")
+    case .zombie:
+      trophyImage.image = UIImage(named: "zombie_hand")
+    }
+    
   }
   
 }
