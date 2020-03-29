@@ -18,8 +18,7 @@ class LocalDataModelManager {
   private init() {
     do {
       database = try Realm()
-      // TODO: customize the db path
-      print(Realm.Configuration.defaultConfiguration.fileURL)
+      print(Realm.Configuration.defaultConfiguration.fileURL as Any)
     } catch {
       print(error)
     }
@@ -38,7 +37,7 @@ class LocalDataModelManager {
       let goalModel = GoalModel.instance(from: goal)
       do {
         try db.write {
-          db.add(goalModel)
+          db.add(goalModel, update: .modified)
         }
       } catch {
         print(error)

@@ -9,6 +9,11 @@
 import Foundation
 import RealmSwift
 
+/*
+ primary keys are used to check if the object was previously
+ stored, if so, Realm won't create a new register.
+ */
+
 class GoalModel: Object {
   @objc dynamic var id = ""
   @objc dynamic var title = ""
@@ -24,20 +29,29 @@ class GoalModel: Object {
     model.goalDescription = goal.description
     model.type = goal.type.rawValue
     model.goal = goal.goal
-    model.reward = RewardModel.instance(from: goal.reward)
+    model.reward = RewardModel.instance(from: goal.reward, parentID: model.id)
     return model
   }
   
+  override static func primaryKey() -> String? {
+    return "id"
+  }
 }
 
 class RewardModel: Object {
   @objc dynamic var trophy = ""
   @objc dynamic var points: Float = 0.0
+  @objc dynamic var id = ""
   
-  static func instance(from reward: Reward) -> RewardModel {
+  static func instance(from reward: Reward, parentID: String) -> RewardModel {
     let model = RewardModel()
     model.trophy = reward.trophy.rawValue
     model.points = reward.points
+    model.id = parentID
     return model
+  }
+  
+  override static func primaryKey() -> String? {
+    return "id"
   }
 }
