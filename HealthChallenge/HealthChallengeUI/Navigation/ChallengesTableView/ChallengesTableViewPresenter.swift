@@ -24,19 +24,22 @@ class ChallengesTableViewPresenter {
     return dataManager.getGoals()
   }
   
+  var stepsNumber: Double = 0
+  
   init() {
     dataManager = LocalDataModelManager.shared
-    
-    authorization { (isSuccessful) in
-      if isSuccessful{
-        self.retrieveStepsCount()
-      }
-    }
-    
   }
   
   func goal(from row: Int) {
     self.row = row
+  }
+  
+  func configureHealthKit(_ completion: @escaping (Double)->Void) {
+    authorization { (isSuccessful) in
+      if isSuccessful{
+        self.retrieveStepsCount(completion)
+      }
+    }
   }
   
   // MARK: - Healthkit
@@ -60,7 +63,7 @@ class ChallengesTableViewPresenter {
     
   }
   
-  private func retrieveStepsCount() {
+  private func retrieveStepsCount(_ completion: @escaping (Double)->Void) {
     
     guard let stepsCount = HKQuantityType.quantityType(forIdentifier:
       HKQuantityTypeIdentifier.stepCount) else {
@@ -81,13 +84,16 @@ class ChallengesTableViewPresenter {
                                             anchorDate: newDate as Date,
                                             intervalComponents: interval)
     query.initialResultsHandler = {
-      query, results, error in
+      query, queryResults, error in
       
-      guard error == nil else {
+      guard let result = queryResults, error == nil else {
+        completion(self.stepsNumber)
         return
       }
       
-      print(results ?? "no results")
+      self.stepsNumber = result.statistics().first?.sumQuantity()?.doubleValue(for: .count()) ?? 0.0
+      print(self.stepsNumber)
+      completion(self.stepsNumber)
     }
     
     hkStore.execute(query)

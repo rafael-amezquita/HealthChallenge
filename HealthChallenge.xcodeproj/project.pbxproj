@@ -36,6 +36,10 @@
 		E1F4EA83242FE464004E1108 /* details-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = E1F4EA82242FE464004E1108 /* details-animation.json */; };
 		E1F4EA85242FE760004E1108 /* ChallengeDetailsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F4EA84242FE760004E1108 /* ChallengeDetailsViewPresenter.swift */; };
 		E1F4EA8B24300798004E1108 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F4EA8A24300798004E1108 /* HealthKit.framework */; };
+		E1F4EA9024315A1B004E1108 /* ShowStepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F4EA8F24315A1B004E1108 /* ShowStepsViewController.swift */; };
+		E1F4EA9224315DDF004E1108 /* phone-running.json in Resources */ = {isa = PBXBuildFile; fileRef = E1F4EA9124315DDF004E1108 /* phone-running.json */; };
+		E1F4EA9424316ACD004E1108 /* ShowStepsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F4EA9324316ACD004E1108 /* ShowStepsPresenter.swift */; };
+		E1F4EA96243175C9004E1108 /* walking.json in Resources */ = {isa = PBXBuildFile; fileRef = E1F4EA95243175C9004E1108 /* walking.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +87,10 @@
 		E1F4EA84242FE760004E1108 /* ChallengeDetailsViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailsViewPresenter.swift; sourceTree = "<group>"; };
 		E1F4EA8924300798004E1108 /* HealthChallenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthChallenge.entitlements; sourceTree = "<group>"; };
 		E1F4EA8A24300798004E1108 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		E1F4EA8F24315A1B004E1108 /* ShowStepsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowStepsViewController.swift; sourceTree = "<group>"; };
+		E1F4EA9124315DDF004E1108 /* phone-running.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "phone-running.json"; sourceTree = "<group>"; };
+		E1F4EA9324316ACD004E1108 /* ShowStepsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowStepsPresenter.swift; sourceTree = "<group>"; };
+		E1F4EA95243175C9004E1108 /* walking.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = walking.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +225,8 @@
 			children = (
 				E1403A95242FBD7D002252FA /* ChallengesTableView */,
 				E1F4EA86243005DD004E1108 /* ChallengeDetailsView */,
+				E1F4EA8F24315A1B004E1108 /* ShowStepsViewController.swift */,
+				E1F4EA9324316ACD004E1108 /* ShowStepsPresenter.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -226,6 +236,8 @@
 			children = (
 				E1403A8F242FAE11002252FA /* splash-loading-aimation.json */,
 				E1F4EA82242FE464004E1108 /* details-animation.json */,
+				E1F4EA9124315DDF004E1108 /* phone-running.json */,
+				E1F4EA95243175C9004E1108 /* walking.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -355,6 +367,8 @@
 				E11DAD42242B92E800B4B733 /* LaunchScreen.storyboard in Resources */,
 				E1F4EA83242FE464004E1108 /* details-animation.json in Resources */,
 				E11DAD3F242B92E800B4B733 /* Assets.xcassets in Resources */,
+				E1F4EA96243175C9004E1108 /* walking.json in Resources */,
+				E1F4EA9224315DDF004E1108 /* phone-running.json in Resources */,
 				E1403A90242FAE11002252FA /* splash-loading-aimation.json in Resources */,
 				E11DAD3D242B92E700B4B733 /* Main.storyboard in Resources */,
 			);
@@ -408,8 +422,10 @@
 				E13E1B24242D75E600E75042 /* LocalDataModel.swift in Sources */,
 				E11DAD5B242B959A00B4B733 /* SereviceDataModel.swift in Sources */,
 				E11DAD67242B9EE000B4B733 /* ServicesAPIProxy.swift in Sources */,
+				E1F4EA9424316ACD004E1108 /* ShowStepsPresenter.swift in Sources */,
 				E11DAD36242B92E700B4B733 /* AppDelegate.swift in Sources */,
 				E1403A8B242FA745002252FA /* ChallengesTableViewPresenter.swift in Sources */,
+				E1F4EA9024315A1B004E1108 /* ShowStepsViewController.swift in Sources */,
 				E11DAD38242B92E700B4B733 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

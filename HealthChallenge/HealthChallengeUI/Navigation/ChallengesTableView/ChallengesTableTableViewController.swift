@@ -11,16 +11,20 @@ import UIKit
 class ChallengesTableTableViewController: UITableViewController {
   
   private let presenter = ChallengesTableViewPresenter()
-  
+  private var steps: Double = 0
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = false
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    presenter.configureHealthKit { (steps) in
+      if steps == 0 {
+        return
+      }
+      self.steps = steps
+      DispatchQueue.main.async {
+        self.performSegue(withIdentifier: "showStepsSegue", sender: nil)
+      }
+    }
   }
   
   // MARK: - Table view data source
@@ -58,11 +62,27 @@ class ChallengesTableTableViewController: UITableViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     // Get the new view controller using segue.destination.
     // Pass the selected object to the new view controller.
+    
+    if segue.identifier == "showStepsSegue" {
+      requestStepsScreen(from: segue.destination)
+      return
+    }
+    
     guard let detailController = segue.destination as? ChallengeDetailViewController else {
       return
     }
     let detailsPresenter = ChallengeDetailsViewPresenter(from: presenter.selectedGoal)
     detailController.setupData(from: detailsPresenter)
+  }
+  
+  // MARK: - Navigation Utilities
+  
+  private func requestStepsScreen(from destination: UIViewController?) {
+    guard let stepsController = destination as? ShowStepsViewController else {
+      return
+    }
+    let stepsPresenter = ShowStepsPresenter(from: steps)
+    stepsController.setupData(from: stepsPresenter)
   }
   
 }

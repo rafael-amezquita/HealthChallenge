@@ -17,14 +17,12 @@ class ChallengeDetailViewController: UIViewController {
   
   private var presenter: ChallengeDetailsViewPresenter?
   private let animation = AnimationView(name: "details-animation")
+  private var rewardImage: UIImage?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     headerView.addSubview(animation)
-    headerView.clipsToBounds = true
-    // TODO: set constraints properly
-    animation.frame = headerView.frame
     animation.play()
     animation.loopMode = .loop
     
@@ -32,10 +30,27 @@ class ChallengeDetailViewController: UIViewController {
       setupReward(presenter.goal.reward)
     }
     
+    setupAnimationConstraints()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    trophyImage.image = rewardImage
+    trophyImage.setNeedsDisplay()
+  }
+  
+  private func setupAnimationConstraints() {
+    animation.translatesAutoresizingMaskIntoConstraints = false
+    animation.leftAnchor.constraint(equalTo: headerView.leftAnchor).isActive = true
+    animation.rightAnchor.constraint(equalTo: headerView.rightAnchor).isActive = true
+    animation.topAnchor.constraint(equalTo: headerView.topAnchor).isActive = true
+    animation.bottomAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
   }
   
   deinit {
     animation.stop()
+    trophyImage.image = nil
   }
   
   // MARK: - Bridge
@@ -51,13 +66,13 @@ class ChallengeDetailViewController: UIViewController {
     
     switch reward.trophy {
     case .gold:
-      trophyImage.image = UIImage(named: "gold_medal")
+      rewardImage = UIImage(named: "gold_medal")
     case .silver:
-      trophyImage.image = UIImage(named: "silver_medal")
+      rewardImage = UIImage(named: "silver_medal")
     case .bronze:
-      trophyImage.image = UIImage(named: "bronze_medal")
+      rewardImage = UIImage(named: "bronze_medal")
     case .zombie:
-      trophyImage.image = UIImage(named: "zombie_hand")
+      rewardImage = UIImage(named: "zombie_hand")
     }
     
   }
