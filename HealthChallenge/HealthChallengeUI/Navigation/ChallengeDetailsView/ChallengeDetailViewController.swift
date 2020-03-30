@@ -33,13 +33,6 @@ class ChallengeDetailViewController: UIViewController {
     setupAnimationConstraints()
   }
   
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    
-    trophyImage.image = rewardImage
-    trophyImage.setNeedsDisplay()
-  }
-  
   private func setupAnimationConstraints() {
     animation.translatesAutoresizingMaskIntoConstraints = false
     animation.leftAnchor.constraint(equalTo: headerView.leftAnchor).isActive = true
@@ -50,7 +43,6 @@ class ChallengeDetailViewController: UIViewController {
   
   deinit {
     animation.stop()
-    trophyImage.image = nil
   }
   
   // MARK: - Bridge
@@ -63,17 +55,26 @@ class ChallengeDetailViewController: UIViewController {
   
   private func setupReward(_ reward: Reward) {
     points.text = "\(reward.points)"
-    
-    switch reward.trophy {
-    case .gold:
-      rewardImage = UIImage(named: "gold_medal")
-    case .silver:
-      rewardImage = UIImage(named: "silver_medal")
-    case .bronze:
-      rewardImage = UIImage(named: "bronze_medal")
-    case .zombie:
-      rewardImage = UIImage(named: "zombie_hand")
+
+    DispatchQueue.global().async {
+     switch reward.trophy {
+       case .gold:
+        self.rewardImage = UIImage(named: "gold_medal")
+       case .silver:
+         self.rewardImage = UIImage(named: "silver_medal")
+       case .bronze:
+         self.rewardImage = UIImage(named: "bronze_medal")
+       case .zombie:
+         self.rewardImage = UIImage(named: "zombie_hand")
+      }
+      
+      DispatchQueue.main.async {
+        self.trophyImage.image = self.rewardImage
+        self.trophyImage.setNeedsDisplay()
+      }
+      
     }
+   
     
   }
   

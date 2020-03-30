@@ -13,6 +13,8 @@ class ChallengesTableTableViewController: UITableViewController {
   private let presenter = ChallengesTableViewPresenter()
   private var steps: Double = 0
   
+  private var destinationController: UIViewController?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -55,24 +57,26 @@ class ChallengesTableTableViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     presenter.goal(from: indexPath.row)
+    let detailsPresenter = ChallengeDetailsViewPresenter(from: presenter.selectedGoal)
+    if let destination = destinationController as? ChallengeDetailViewController {
+      destination.setupData(from: detailsPresenter)
+    }
   }
   
   // MARK: - Navigation
    
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    // Get the new view controller using segue.destination.
-    // Pass the selected object to the new view controller.
-    
     if segue.identifier == "showStepsSegue" {
       requestStepsScreen(from: segue.destination)
       return
     }
     
-    guard let detailController = segue.destination as? ChallengeDetailViewController else {
+    guard let detailController = segue.destination as?
+      ChallengeDetailViewController else {
       return
     }
-    let detailsPresenter = ChallengeDetailsViewPresenter(from: presenter.selectedGoal)
-    detailController.setupData(from: detailsPresenter)
+    
+    destinationController = detailController
   }
   
   // MARK: - Navigation Utilities
