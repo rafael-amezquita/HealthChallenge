@@ -24,25 +24,29 @@ class LocalDataModelManager {
     }
   }
   
-  func save(goals: [Goal]) {
+  @discardableResult
+  func save(goals: [Goal]) -> Bool {
+    var didSaveRecords = false
     
     guard let db = database else {
       // TODO: handle this error
       print("an error was occured storing the data")
-      return
+      return false
     }
     
-    // TODO: Check if they already exis
     for goal in goals {
       let goalModel = GoalModel.instance(from: goal)
       do {
         try db.write {
           db.add(goalModel, update: .modified)
+          didSaveRecords = true
         }
       } catch {
         print(error)
       }
     }
+    
+    return didSaveRecords
     
   }
   
@@ -73,23 +77,25 @@ class LocalDataModelManager {
     return goals
   }
   
-  func get(goal: Goal) -> Goal? {
-    return nil
-  }
-  
-  func updateAll() -> Bool {
-    return false
-  }
-  
-  func update(goal: Goal) -> Bool {
-    return false
-  }
-  
+  @discardableResult
   func removeAll() -> Bool {
-    return false
+    var didRemoveRecords = false
+    
+    guard let db = database else {
+      print("an error was occured removing the data")
+      return didRemoveRecords
+    }
+    
+    do {
+      try db.write {
+        db.deleteAll()
+        didRemoveRecords = true
+      }
+    } catch {
+      print(error)
+    }
+    
+    return didRemoveRecords
   }
   
-  func remove(goal: Goal) -> Bool {
-    return false
-  }
 }

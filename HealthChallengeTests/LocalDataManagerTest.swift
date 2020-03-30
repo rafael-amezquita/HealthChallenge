@@ -11,26 +11,37 @@ import XCTest
 
 class LocalDataManagerTest: XCTestCase {
   
+  let dataManager = LocalDataModelManager.shared
+  let mockedProxy = MockedProxy()
+  
   override func setUp() {
     // Put setup code here. This method is called before the invocation of each test method in the class.
   }
   
   override func tearDown() {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
+    dataManager.removeAll()
   }
   
   func test_save_shouldSaveGoalsAsModels() {
-    // TODO: figure out how to handle tests for data base to avoid
-    // having mocked data stored in the same data base
-    // TODO: Mock service response
-    // LocalDataModelManager.shared.save(goals: goals)
+    mockedProxy.goals { (_, goals) in
+      let didSave = self.dataManager.save(goals: goals)
+      XCTAssertTrue(didSave)
+    }
   }
   
   func test_getGoals_shouldRetrieveGoalsAsServiceModels() {
-    let goals = LocalDataModelManager.shared.getGoals()
     
-    XCTAssertNotNil(goals)
-    XCTAssertTrue(goals.count > 0)
+    mockedProxy.goals { (_, goals) in
+      let didSave = self.dataManager.save(goals: goals)
+      XCTAssertTrue(didSave)
+      
+      let goals = self.dataManager.getGoals()
+      XCTAssertNotNil(goals)
+      XCTAssertTrue(goals.count > 0)
+    }
+    
+    
     
   }
   

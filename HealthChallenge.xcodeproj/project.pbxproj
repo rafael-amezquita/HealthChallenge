@@ -12,11 +12,9 @@
 		E11DAD3D242B92E700B4B733 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E11DAD3B242B92E700B4B733 /* Main.storyboard */; };
 		E11DAD3F242B92E800B4B733 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E11DAD3E242B92E800B4B733 /* Assets.xcassets */; };
 		E11DAD42242B92E800B4B733 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E11DAD40242B92E800B4B733 /* LaunchScreen.storyboard */; };
-		E11DAD4D242B92E800B4B733 /* HealthChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11DAD4C242B92E800B4B733 /* HealthChallengeTests.swift */; };
 		E11DAD5B242B959A00B4B733 /* SereviceDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11DAD5A242B959A00B4B733 /* SereviceDataModel.swift */; };
 		E11DAD63242B9D7100B4B733 /* CarthageInputFile.xcfilelist in Resources */ = {isa = PBXBuildFile; fileRef = E11DAD62242B9D7100B4B733 /* CarthageInputFile.xcfilelist */; };
 		E11DAD65242B9DB700B4B733 /* CarthageOutputFile.xcfilelist in Resources */ = {isa = PBXBuildFile; fileRef = E11DAD64242B9DB700B4B733 /* CarthageOutputFile.xcfilelist */; };
-		E11DAD67242B9EE000B4B733 /* ServicesAPIProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11DAD66242B9EE000B4B733 /* ServicesAPIProxy.swift */; };
 		E11DAD6A242BA1C300B4B733 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11DAD69242BA1C300B4B733 /* Alamofire.framework */; };
 		E1361710242C1E9300FD7691 /* ServiceAPIProxyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E136170F242C1E9300FD7691 /* ServiceAPIProxyTest.swift */; };
 		E1361712242C29A200FD7691 /* ServiceAPIProxyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1361711242C29A200FD7691 /* ServiceAPIProxyFactory.swift */; };
@@ -32,6 +30,8 @@
 		E1403A8D242FABF5002252FA /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1403A8C242FABF5002252FA /* Lottie.framework */; };
 		E1403A90242FAE11002252FA /* splash-loading-aimation.json in Resources */ = {isa = PBXBuildFile; fileRef = E1403A8F242FAE11002252FA /* splash-loading-aimation.json */; };
 		E1403A97242FD5D9002252FA /* ChallengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1403A96242FD5D9002252FA /* ChallengeTableViewCell.swift */; };
+		E1A5C6E32432A36B0036B32C /* MockServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A5C6E22432A36B0036B32C /* MockServiceResponse.swift */; };
+		E1A5C6E62432B47A0036B32C /* ServicesAPIProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11DAD66242B9EE000B4B733 /* ServicesAPIProxy.swift */; };
 		E1BC940E242D188B0052614A /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1BC940D242D188B0052614A /* Realm.framework */; };
 		E1F4EA83242FE464004E1108 /* details-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = E1F4EA82242FE464004E1108 /* details-animation.json */; };
 		E1F4EA85242FE760004E1108 /* ChallengeDetailsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F4EA84242FE760004E1108 /* ChallengeDetailsViewPresenter.swift */; };
@@ -61,7 +61,6 @@
 		E11DAD41242B92E800B4B733 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E11DAD43242B92E800B4B733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E11DAD48242B92E800B4B733 /* HealthChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E11DAD4C242B92E800B4B733 /* HealthChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthChallengeTests.swift; sourceTree = "<group>"; };
 		E11DAD4E242B92E800B4B733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E11DAD5A242B959A00B4B733 /* SereviceDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SereviceDataModel.swift; sourceTree = "<group>"; };
 		E11DAD62242B9D7100B4B733 /* CarthageInputFile.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = CarthageInputFile.xcfilelist; sourceTree = "<group>"; };
@@ -82,6 +81,7 @@
 		E1403A8C242FABF5002252FA /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
 		E1403A8F242FAE11002252FA /* splash-loading-aimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "splash-loading-aimation.json"; sourceTree = "<group>"; };
 		E1403A96242FD5D9002252FA /* ChallengeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeTableViewCell.swift; sourceTree = "<group>"; };
+		E1A5C6E22432A36B0036B32C /* MockServiceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceResponse.swift; sourceTree = "<group>"; };
 		E1BC940D242D188B0052614A /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		E1F4EA82242FE464004E1108 /* details-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "details-animation.json"; sourceTree = "<group>"; };
 		E1F4EA84242FE760004E1108 /* ChallengeDetailsViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailsViewPresenter.swift; sourceTree = "<group>"; };
@@ -154,8 +154,8 @@
 		E11DAD4B242B92E800B4B733 /* HealthChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
-				E11DAD4C242B92E800B4B733 /* HealthChallengeTests.swift */,
 				E11DAD4E242B92E800B4B733 /* Info.plist */,
+				E1A5C6E42432A3760036B32C /* MockedData */,
 				E136170F242C1E9300FD7691 /* ServiceAPIProxyTest.swift */,
 				E1403A7E242D9719002252FA /* LocalDataManagerTest.swift */,
 			);
@@ -250,6 +250,14 @@
 				E1403A96242FD5D9002252FA /* ChallengeTableViewCell.swift */,
 			);
 			path = ChallengesTableView;
+			sourceTree = "<group>";
+		};
+		E1A5C6E42432A3760036B32C /* MockedData */ = {
+			isa = PBXGroup;
+			children = (
+				E1A5C6E22432A36B0036B32C /* MockServiceResponse.swift */,
+			);
+			path = MockedData;
 			sourceTree = "<group>";
 		};
 		E1F4EA86243005DD004E1108 /* ChallengeDetailsView */ = {
@@ -412,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1361712242C29A200FD7691 /* ServiceAPIProxyFactory.swift in Sources */,
+				E1A5C6E62432B47A0036B32C /* ServicesAPIProxy.swift in Sources */,
 				E1403A97242FD5D9002252FA /* ChallengeTableViewCell.swift in Sources */,
 				E13E1B26242D7D6C00E75042 /* LocalDataManager.swift in Sources */,
 				E1403A81242E3BC3002252FA /* SplashViewController.swift in Sources */,
@@ -421,7 +430,6 @@
 				E1403A87242FA352002252FA /* SplashViewPresenter.swift in Sources */,
 				E13E1B24242D75E600E75042 /* LocalDataModel.swift in Sources */,
 				E11DAD5B242B959A00B4B733 /* SereviceDataModel.swift in Sources */,
-				E11DAD67242B9EE000B4B733 /* ServicesAPIProxy.swift in Sources */,
 				E1F4EA9424316ACD004E1108 /* ShowStepsPresenter.swift in Sources */,
 				E11DAD36242B92E700B4B733 /* AppDelegate.swift in Sources */,
 				E1403A8B242FA745002252FA /* ChallengesTableViewPresenter.swift in Sources */,
@@ -434,8 +442,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E11DAD4D242B92E800B4B733 /* HealthChallengeTests.swift in Sources */,
 				E1361710242C1E9300FD7691 /* ServiceAPIProxyTest.swift in Sources */,
+				E1A5C6E32432A36B0036B32C /* MockServiceResponse.swift in Sources */,
 				E1403A7F242D9719002252FA /* LocalDataManagerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

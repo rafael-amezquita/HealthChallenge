@@ -17,11 +17,6 @@ class ServiceAPIProxyTest: XCTestCase {
     proxy =  ServiceAPIProxyFactory.createServiceAPIProxy()
   }
   
-  override func tearDown() {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-  }
-  
-  
   func test_apiGoals_shouldReturnGoalsArray() {
     let exp = expectation(description: "loading goals")
     
@@ -35,7 +30,6 @@ class ServiceAPIProxyTest: XCTestCase {
     
     XCTAssertNotNil(goalsList)
   }
-  
   
   
 }
