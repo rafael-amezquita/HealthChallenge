@@ -225,8 +225,7 @@
 			children = (
 				E1403A95242FBD7D002252FA /* ChallengesTableView */,
 				E1F4EA86243005DD004E1108 /* ChallengeDetailsView */,
-				E1F4EA8F24315A1B004E1108 /* ShowStepsViewController.swift */,
-				E1F4EA9324316ACD004E1108 /* ShowStepsPresenter.swift */,
+				E1A5C6E72432B7DE0036B32C /* ShowStepsView */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -258,6 +257,15 @@
 				E1A5C6E22432A36B0036B32C /* MockServiceResponse.swift */,
 			);
 			path = MockedData;
+			sourceTree = "<group>";
+		};
+		E1A5C6E72432B7DE0036B32C /* ShowStepsView */ = {
+			isa = PBXGroup;
+			children = (
+				E1F4EA8F24315A1B004E1108 /* ShowStepsViewController.swift */,
+				E1F4EA9324316ACD004E1108 /* ShowStepsPresenter.swift */,
+			);
+			path = ShowStepsView;
 			sourceTree = "<group>";
 		};
 		E1F4EA86243005DD004E1108 /* ChallengeDetailsView */ = {
