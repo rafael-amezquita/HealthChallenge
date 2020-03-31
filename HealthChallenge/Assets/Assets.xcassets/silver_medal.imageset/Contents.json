@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icons8-medalla-olímpica-de-plata-80.png",
+      "filename" : "icons8-medalla-olimpica-de-plata-80.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "icons8-medalla-olímpica-de-plata-80@2x.png",
+      "filename" : "icons8-medalla-olimpica-de-plata-80@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "icons8-medalla-olímpica-de-plata-80@3x.png",
+      "filename" : "icons8-medalla-olimpica-de-plata-80@3x.png",
       "scale" : "3x"
     }
   ],
